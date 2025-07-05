@@ -1,5 +1,8 @@
 package uni1a;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Clase que representa un video de YouTube, subclase de ContenidoAudiovisual.
  */
@@ -10,6 +13,8 @@ public class VideoYouTube extends ContenidoAudiovisual {
     private int likes;
     // Indica si el video está monetizado
     private boolean monetizado;
+    // Lista de actores que participan en el video
+    private List<Actor> actores;
 
     /**
      * Constructor de la clase VideoYouTube
@@ -25,6 +30,7 @@ public class VideoYouTube extends ContenidoAudiovisual {
         this.canal = canal;
         this.likes = likes;
         this.monetizado = monetizado;
+        this.actores = new ArrayList<>();
     }
 
     // Getter y setter para canal
@@ -54,11 +60,30 @@ public class VideoYouTube extends ContenidoAudiovisual {
         this.monetizado = monetizado;
     }
 
-    /**
-     * Devuelve una representación en cadena del video de YouTube
-     */
+    // Métodos para manejar la lista de actores
+    public List<Actor> getActores() {
+        return actores;
+    }
+
+    public void agregarActor(Actor actor) {
+        this.actores.add(actor);
+    }
+
+    public void eliminarActor(Actor actor) {
+        this.actores.remove(actor);
+    }
+
+    // Devuelve una representación en cadena del video de YouTube
     @Override
     public String toString() {
-        return "VideoYouTube: " + getTitulo() + " | Canal: " + canal + " | Likes: " + likes + " | Monetizado: " + (monetizado ? "Sí" : "No");
+        // Recorre la lista de actores y los concatena en una cadena
+        String nombresActores = "";
+        for (Actor actor : actores) {
+            nombresActores += actor.toString() + ", ";
+        }
+
+        // Devuelve la información principal del video de YouTube en formato texto
+        return "VideoYouTube: " + getTitulo() + " | Canal: " + canal + " | Duración: " + getDuracionEnMinutos() +  " | Likes: " + likes + " | Monetizado: " + (monetizado ? "Sí" : "No") +
+                " | Actores: [" + nombresActores + "]";
     }
 }

@@ -65,25 +65,23 @@ public class Cortometraje extends ContenidoAudiovisual {
     }
 
     /**
-     * Devuelve una representación en cadena del cortometraje
+     * Muestra los detalles del cortometraje en consola.
+     * Incluye el título, festival principal, duración, actores y festivales donde se ha presentado.
      */
     @Override
-    public String toString() {
-
-        // Recorre la lista de actores y los concatena en una cadena
-        String nombresActores = "";
+    public void mostrarDetalles() {
+        System.out.println("Detalles del cortometraje:");
+        System.out.println("Título: " + getTitulo());
+        System.out.println("Festival principal: " + festival);
+        System.out.println("Duración: " + getDuracionEnMinutos() + " minutos");
+        System.out.println("Actores:");
         for (Actor actor : actores) {
-            nombresActores += actor.toString() + ", ";
+            System.out.println("  - " + actor);
         }
-
-        // Recorre la lista de festivales y los concatena en una cadena
-        String nombresFestivales = "";
+        System.out.println("Festivales:");
         for (String fest : festivales) {
-            nombresFestivales += fest + ", ";
+            System.out.println("  - " + fest);
         }
-
-        // Devuelve la información principal del cortometraje en formato texto
-        return "Cortometraje: " + getTitulo() + " | Festival: " + festival + " | Duración: " + getDuracionEnMinutos() +
-                " | Actores: [" + nombresActores + "] | Festivales: [" + nombresFestivales + "]";
+        System.out.println();
     }
 }

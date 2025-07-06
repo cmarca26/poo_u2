@@ -73,17 +73,21 @@ public class VideoYouTube extends ContenidoAudiovisual {
         this.actores.remove(actor);
     }
 
-    // Devuelve una representación en cadena del video de YouTube
+    /**
+     * Muestra los detalles del video de YouTube en consola.
+     */
     @Override
-    public String toString() {
-        // Recorre la lista de actores y los concatena en una cadena
-        String nombresActores = "";
+    public void mostrarDetalles() {
+        System.out.println("Detalles del Video de YouTube:");
+        System.out.println("Título: " + getTitulo());
+        System.out.println("Canal: " + canal);
+        System.out.println("Likes: " + likes);
+        System.out.println("Duración: " + getDuracionEnMinutos() + " minutos");
+        System.out.println("Monetizado: " + (monetizado ? "Sí" : "No"));
+        System.out.println("Actores:");
         for (Actor actor : actores) {
-            nombresActores += actor.toString() + ", ";
+            System.out.println("  - " + actor);
         }
-
-        // Devuelve la información principal del video de YouTube en formato texto
-        return "VideoYouTube: " + getTitulo() + " | Canal: " + canal + " | Duración: " + getDuracionEnMinutos() +  " | Likes: " + likes + " | Monetizado: " + (monetizado ? "Sí" : "No") +
-                " | Actores: [" + nombresActores + "]";
+        System.out.println();
     }
 }

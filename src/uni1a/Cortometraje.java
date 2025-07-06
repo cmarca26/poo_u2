@@ -11,8 +11,6 @@ public class Cortometraje extends ContenidoAudiovisual {
     private String festival;
     // Lista de actores que participan en el cortometraje
     private List<Actor> actores;
-    // Lista de festivales donde se ha presentado
-    private List<String> festivales;
 
     /**
      * Constructor de la clase Cortometraje
@@ -25,8 +23,6 @@ public class Cortometraje extends ContenidoAudiovisual {
         super(titulo, duracionEnMinutos, genero);
         this.festival = festival;
         this.actores = new ArrayList<>();
-        this.festivales = new ArrayList<>();
-        this.festivales.add(festival); // Se agrega el festival
     }
 
     // Getter y setter para festival
@@ -51,22 +47,9 @@ public class Cortometraje extends ContenidoAudiovisual {
         this.actores.remove(actor);
     }
 
-    // Métodos para manejar la lista de festivales
-    public List<String> getFestivales() {
-        return festivales;
-    }
-
-    public void agregarFestival(String festival) {
-        this.festivales.add(festival);
-    }
-
-    public void eliminarFestival(String festival) {
-        this.festivales.remove(festival);
-    }
-
     /**
      * Muestra los detalles del cortometraje en consola.
-     * Incluye el título, festival principal, duración, actores y festivales donde se ha presentado.
+     * Incluye el título, festival principal, duración, actores
      */
     @Override
     public void mostrarDetalles() {
@@ -77,10 +60,6 @@ public class Cortometraje extends ContenidoAudiovisual {
         System.out.println("Actores:");
         for (Actor actor : actores) {
             System.out.println("  - " + actor);
-        }
-        System.out.println("Festivales:");
-        for (String fest : festivales) {
-            System.out.println("  - " + fest);
         }
         System.out.println();
     }

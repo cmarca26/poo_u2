@@ -53,7 +53,6 @@ public class PruebaAudioVisual {
             Actor actorAleatorio = actores.get(rand.nextInt(actores.size()));
             cortometraje.agregarActor(actorAleatorio);
         }
-        cortometraje.agregarFestival("Festival Internacional de Cortometrajes");
 
         // Crear VideoYouTube y agregar actores aleatorios
         VideoYouTube videoYouTube = new VideoYouTube("El experimento de la doble rendija", 15, "Ciencia", "QuantumFracture", 250000, true);
